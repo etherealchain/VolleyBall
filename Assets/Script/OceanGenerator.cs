@@ -5,7 +5,7 @@ using UnityEngine;
 public class OceanGenerator : MonoBehaviour {
 
 	int realSize = 64;
-	int meshSize = 128;
+	int meshSize = 150;
 	float noiseScale = 1;
 	float waveScale = 1;
 	List<Vector3> vertices;
@@ -37,9 +37,9 @@ public class OceanGenerator : MonoBehaviour {
 
 				float height = Mathf.PerlinNoise(x*noiseScale,z*noiseScale);
 				posArray[i,j] = new Vector3(x, height*waveScale, z);
-				x = x + realSize/meshSize;
+				x += realSize/(float)meshSize;
 			}
-			z = z + realSize/meshSize;
+			z += realSize/(float)meshSize;
 			x = center.x - realSize/2;
 		}
 	}
